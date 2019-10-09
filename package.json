@@ -8,7 +8,8 @@
     "watch": "webpack --watch",
     "serve": "json-server db.json",
     "e2e": "cypress run",
-    "cypress": "cypress open",
+    "cy:run": "cypress run",
+    "test": "start-server-and-test dev http://localhost:3030 cy:run",
     "dev": "concurrently \"npm run watch\" \"npm run serve\""
   },
   "husky": {
@@ -40,6 +41,7 @@
     "husky": "^3.0.8",
     "prettier": "1.18.2",
     "pretty-quick": "^1.11.1",
+    "start-server-and-test": "^1.10.5",
     "style-loader": "^0.19.0",
     "webpack": "^3.6.0"
   }
