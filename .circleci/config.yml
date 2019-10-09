@@ -1,8 +1,21 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
 version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10-browsers
+      # specify the version you desire here
+      - image: circleci/node:7.10
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
+
+    working_directory: ~/repo
+
     steps:
       - checkout
 
@@ -13,32 +26,12 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: npm install && npm run build
+      - run: yarn install
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-test:
-  docker:
-    - image: circleci/node:10-browsers
-  steps:
-    - checkout
-    - run: npm run test
-end-to-end:
-  docker:
-    - image: circleci/node:10-browsers
-  steps:
-    - checkout
-    - run: npm run e2e
-
-workflows:
-  version: 2
-  test_and_build:
-    jobs:
-      - end-to-end:
-      - test:
-      - build:
-        requires:
-          - test
+      # run tests!
+      - run: yarn test
