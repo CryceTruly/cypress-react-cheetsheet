@@ -1,4 +1,4 @@
-# cypress-react-cheetsheet
+# cypress-react-cheetsheet [![CircleCI](https://circleci.com/gh/CryceTruly/cypress-react-cheetsheet.svg?style=svg)](https://circleci.com/gh/CryceTruly/cypress-react-cheetsheet)
 
 cypress testing examples with react
 
