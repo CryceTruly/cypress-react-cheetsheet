@@ -9,4 +9,5 @@ cypress testing examples with react
 - Custom commands
 - Seeding
 - Some more react and es6+
-- Elemet selection using `data-cy`
+- Element selection using `data-cy`
+- Running e2e Tests in A CI environment
